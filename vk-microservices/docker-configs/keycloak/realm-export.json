@@ -1,0 +1,49 @@
+{
+  "id": "vk-microservices",
+  "realm": "vk-microservices",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": true,
+  "privateKey": "MIIEvQIBADANBgkqh...",
+  "publicKey": "MIIBIjANBgkqh...",
+  "clients": [
+    {
+      "clientId": "browser-extension",
+      "enabled": true,
+      "publicClient": true,
+      "redirectUris": [
+        "chrome-extension://*/popup.html",
+        "http://localhost:3000/*"
+      ],
+      "webOrigins": ["+"],
+      "protocol": "openid-connect",
+      "attributes": {
+        "access.token.lifespan": "300"
+      }
+    },
+    {
+      "clientId": "vk-proxy-service",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "proxy-service-secret",
+      "redirectUris": [],
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "serviceAccountsEnabled": true
+    }
+  ],
+  "users": [],
+  "roles": {
+    "realm": [
+      {
+        "name": "user",
+        "description": "Regular user"
+      },
+      {
+        "name": "admin",
+        "description": "Administrator"
+      }
+    ]
+  }
+}
+
